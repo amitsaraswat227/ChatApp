@@ -5,6 +5,7 @@ import { useAuth } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
+
 function Login() {
   const [ authUser,setAuthUser] = useAuth();
   const {
@@ -17,6 +18,7 @@ function Login() {
       email: data.email,
       password: data.password,
     };
+     
 
     await axios
       .post("/api/user/login", userInfo)
@@ -26,6 +28,7 @@ function Login() {
           toast.success("Login successfully");
         }
         localStorage.setItem("chatApp", JSON.stringify(response.data));
+        
         setAuthUser(response.data);
       })
       .catch((error) => {

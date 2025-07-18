@@ -1,8 +1,9 @@
 import React from 'react'
 
 function Message({message}) {
-
+ 
   const authUser=JSON.parse(localStorage.getItem("chatApp"));
+  
   const itsMe=message.SenderId === authUser.user._id;
 
   const chatName=itsMe? "chat-end" : "chat-start";
